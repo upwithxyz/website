@@ -9,11 +9,12 @@ injectGlobal`
   ${normalize()}
   ${fontFace}
 
-  html {
+  html, body {
     font-family: 'Inter UI', 'San Francisco', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     font-weight: 500;
     line-height: 1.2;
+    background: #fafafa;
     color: ${theme.colours.nightBlue};
   }
 

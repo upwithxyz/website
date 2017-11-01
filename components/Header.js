@@ -1,39 +1,65 @@
-import React from 'react';
-import styled from 'styled-components';
+import Hosts from './Hosts';
+import { H1, H2, H4 } from './Text';
 
-import Container from './Container';
+const Wtf = H1.extend.attrs({
+  caps: true,
+  red: true,
+  children: 'Wtf'
+})`
+  position: relative;
+  margin-left: -0.1em;
 
-const Wrapper = styled.div`
-  background-position: center;
-  background-size: cover;
-  background-image: url('/static/brand/radiuses.svg'), ${p => p.theme.gradients.header};
-  background-repeat: no-repeat;
+  &:before {
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    margin-top: -17px;
+    width: 35px;
+    height: 35px;
 
-  width: 100%;
-  color: ${p => p.theme.colours.white};
+    background-color: ${p => p.theme.colours.rustRed};
+    border-radius: 50%;
+    content: ' ';
+  }
 `;
 
-const Recorder = styled.div`
-  position: absolute;
-  top: ${p => p.theme.sizes.large};
-  right: ${p => p.theme.sizes.gutter};
-  bottom: 0;
-  width: 40%;
-
-  background-image: url('/static/brand/recorder.svg');
-  background-position: 100% 0%;
-  background-size: cover;
-  background-repeat: no-repeat;
+const IsUpWith = H2.extend.attrs({
+  children: 'is up with'
+})`
+  ${p => p.theme.effects.glitchText}
 `;
 
-const Header = ({ children }) => (
-  <Wrapper>
-    <Container>
-      <Recorder />
+const Xyz = H2.extend.attrs({
+  red: true,
+  bold: true,
+  caps: true,
+  children: 'Xyz'
+})`
+  margin-top: 0.1em;
+`;
 
-      {children}
-    </Container>
-  </Wrapper>
+const Description = H4.extend`
+  padding-top: ${p => p.theme.sizes.medium};
+  padding-bottom: ${p => p.theme.sizes.large};
+  width: 80%;
+`;
+
+const Header = () => (
+  <div>
+    <Wtf />
+    <IsUpWith />
+    <Xyz />
+
+    <Description>Biweekly Podcast about JavaScript, Tech, and the World... I guess</Description>
+
+    <Hosts
+      hosts={[
+        { src: '/static/hosts/phil.jpg', name: 'Phil' },
+        { src: '/static/hosts/sara.jpg', name: 'Sara' },
+        { src: '/static/hosts/anup.jpg', name: 'Anup' }
+      ]}
+    />
+  </div>
 );
 
 export default Header;
