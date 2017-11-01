@@ -27,10 +27,7 @@ export default class MyDocument extends Document {
        </Head>
 
        <body>
-         <div className="root">
-           <Main />
-         </div>
-
+         <Main />
          <NextScript />
        </body>
      </html>
