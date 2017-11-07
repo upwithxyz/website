@@ -40,6 +40,7 @@ const Circle = styled.circle.attrs({
   stroke: 'rgba(253, 242, 255, 0.11)',
   fill: 'none'
 })`
+  will-change: transform;
   animation: ${p => (p.breatheSmall ? 8 : 10)}s ease-in-out
     ${p => p.breathePhase * (p.breatheSmall ? 8 : 10)}s infinite alternate
     ${p => (p.breatheSmall ? breatheSmall : breatheLarge)};
