@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Container from '../Container';
+import Radiuses from './Radiuses';
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,10 +12,8 @@ const Wrapper = styled.div`
 `;
 
 const Cover = styled.div`
-  background-position: center;
-  background-size: cover;
-  background-image: url('/static/brand/radiuses.svg'), ${p => p.theme.gradients.header};
-  background-repeat: no-repeat;
+  position: relative;
+  background: ${p => p.theme.gradients.header};
   width: 100%;
   color: ${p => p.theme.colours.white};
 `;
@@ -30,14 +29,21 @@ const Recorder = styled.div`
   background-position: 100% 0%;
   background-size: cover;
   background-repeat: no-repeat;
+
+  z-index: 1;
+`;
+
+const Content = styled.div`
+  z-index: 2;
 `;
 
 const Body = ({ children, renderHeader }) => (
   <Wrapper>
     <Cover>
+      <Radiuses />
       <Container>
         <Recorder />
-        {renderHeader()}
+        <Content>{renderHeader()}</Content>
       </Container>
     </Cover>
 

@@ -1,3 +1,4 @@
+import React from 'react';
 import Hosts from './Hosts';
 import { H1, H2, H4 } from './Text';
 
